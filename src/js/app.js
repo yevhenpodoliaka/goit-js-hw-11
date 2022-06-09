@@ -22,7 +22,7 @@ async function onBtnMoreClick() {
       return endGalleryList();
     }
   } catch (error) {
-    console.log(error.message);
+   Notify.failure(error.message);
   }
 }
 
@@ -57,7 +57,7 @@ async function onFormSubmit(e) {
       return endGalleryList();
     }
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
 
