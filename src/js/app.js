@@ -34,9 +34,9 @@ async function onFormSubmit(e) {
  
      try {
        const result = await search.fetchPictures();
-      
     uppendMarkup(result.hits);
-    Notiflix.Notify.info(`Hooray! We found ${result.totalHits} images.`);
+       Notiflix.Notify.info(`Hooray! We found ${result.totalHits} images.`);
+       refs.btnMore.classList.remove('is-hidden')
   } catch (error) {
     console.log(error.message);
   }
@@ -50,6 +50,7 @@ function uppendMarkup(arr) {
   }
   refs.gallery.insertAdjacentHTML('beforeend', createMarkup(arr));
   lightbox.refresh()
+  
 }
 
 function clearGallery() {
