@@ -10,24 +10,23 @@ export function createMarkup(arr) {
         comments,
         downloads,
       }) => {
-        return ` <a href="${largeImageURL}"><div class="photo-card">
-       
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+        return ` <div class="photo-card">
+ <a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
   <div class="info">
     <p class="info-item">
-      <b>Likes${likes}</b>
+      <b>Likes ${likes}</b>
     </p>
     <p class="info-item">
-      <b>Views${views}</b>
+      <b>Views ${views}</b>
     </p>
     <p class="info-item">
-      <b>Comments${comments}</b>
+      <b>Comments ${comments}</b>
     </p>
     <p class="info-item">
       <b>Downloads ${downloads}</b>
     </p>
   </div>
-</div></a> `;
+</div> `;
       }
     )
     .join('');
