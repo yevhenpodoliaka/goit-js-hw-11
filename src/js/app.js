@@ -12,11 +12,11 @@ refs.form.addEventListener('submit', onFormSubmit);
 refs.btnMore.addEventListener('click', onBtnMoreClick);
 
 async function onBtnMoreClick() {
-  search.incrementPage();
   try {
     const result = await search.fetchPictures();
     uppendMarkup(result.hits);
-    search.remnantTotalQuantity -= 40;
+      search.incrementPage();
+      search.remnantTotalQuantity -= 40;
 
     if (search.remnantTotalQuantity <= 0) {
       return endGalleryList();
@@ -37,7 +37,7 @@ async function onFormSubmit(e) {
 
   clearGallery();
   search.resetPage();
-  search.incrementPage();
+
 
   try {
     const result = await search.fetchPictures();
@@ -48,7 +48,7 @@ async function onFormSubmit(e) {
       return;
     }
     uppendMarkup(result.hits);
-
+    search.incrementPage();
     Notify.info(`Hooray! We found ${result.totalHits} images.`);
 
     refs.btnMore.classList.remove('is-hidden');
@@ -82,7 +82,7 @@ function clearGallery() {
 function endGalleryList() {
   Notify.info("We're sorry, but you've reached the end of search results.");
   refs.btnMore.classList.add('is-hidden');
-}
+ }
 
 Notify.init({
   width: '300px',
